@@ -16,14 +16,14 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, re_path, include
-from app1 import viewsLog, viewsOwner, viewsDeptos, viewsMpios
+from app1 import viewsLog, viewsOwner, viewsParcel
 from rest_framework import routers
 from rest_framework.documentation import include_docs_urls
 
 router = routers.DefaultRouter()
 router.register(r'owners', viewsOwner.OwnerViews, 'owners')
-router.register(r'deptos', viewsDeptos.DeptosViews, 'deptos')
-router.register(r'mpios', viewsMpios.MpiosViews, 'mpios')
+router.register(r'parcel', viewsParcel.ViewsParcel, 'parcel')
+# router.register(r'mpios', viewsMpios.MpiosViews, 'mpios')
 
 
 urlpatterns = [
@@ -36,8 +36,8 @@ urlpatterns = [
     re_path('profile_update/', viewsLog.profileUpdate),
 
     path('owners/', include(router.urls)),
-    path('deptos/', include(router.urls)),
-    path('mpios/', include(router.urls)),
+    path('parcel/', include(router.urls)),
+    # path('mpios/', include(router.urls)),
 
     path('docs/', include_docs_urls(title='API Documentation')),
 ]

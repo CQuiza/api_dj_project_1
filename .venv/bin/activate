@@ -38,7 +38,7 @@ deactivate () {
 # unset irrelevant variables
 deactivate nondestructive
 
-VIRTUAL_ENV="/home/vagrant/docker/api_dj_project_1/.venv"
+VIRTUAL_ENV="/home/caquineu/docker/copia_docker_desweb/api_dj_project_1/.venv"
 export VIRTUAL_ENV
 
 _OLD_VIRTUAL_PATH="$PATH"

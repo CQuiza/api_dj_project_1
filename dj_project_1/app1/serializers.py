@@ -1,6 +1,6 @@
 from rest_framework import serializers # para crear las clases
 from django.contrib.auth.models import User # para manejar usuarios con django
-from .models import Owners, Deptos, Mpios # importar el modelo de la app1
+from .models import Owners, Municipality, Parcel # importar el modelo de la app1
 
 
 class UserSerializer(serializers.ModelSerializer):
@@ -26,12 +26,22 @@ class OwnersSerializer(serializers.ModelSerializer):
         model = Owners
         fields = '__all__'
 
-class DeptosSerializer(serializers.ModelSerializer):
+class MunicipalitySerializer(serializers.ModelSerializer):
     class Meta:
-        model = Deptos
+        model = Municipality
         fields = '__all__'
 
-class MpiosSerializer(serializers.ModelSerializer):
+class ParcelSerializer(serializers.ModelSerializer):
     class Meta:
-        model = Mpios
+        model = Parcel
         fields = '__all__'
+
+# class DeptosSerializer(serializers.ModelSerializer):
+#     class Meta:
+#         model = Deptos
+#         fields = '__all__'
+
+# class MpiosSerializer(serializers.ModelSerializer):
+#     class Meta:
+#         model = Mpios
+#         fields = '__all__'

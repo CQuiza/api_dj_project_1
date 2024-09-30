@@ -21,6 +21,7 @@ from django.urls import include # se agrega para poder incorporar la app al path
 
 urlpatterns = [
     path('app1/', include('app1.urls')),
+    path('ladmcol_ma/', include('ladmcol_environment.urls')),
     path('admin/', admin.site.urls),
     path('api-auth/', include('rest_framework.urls')), # para usar el token generado en la api
 ]

@@ -33,7 +33,7 @@ end
 # Unset irrelevant variables.
 deactivate nondestructive
 
-set -gx VIRTUAL_ENV "/home/vagrant/docker/api_dj_project_1/.venv"
+set -gx VIRTUAL_ENV "/home/caquineu/docker/copia_docker_desweb/api_dj_project_1/.venv"
 
 set -gx _OLD_VIRTUAL_PATH $PATH
 set -gx PATH "$VIRTUAL_ENV/bin" $PATH

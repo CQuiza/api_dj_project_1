@@ -42,11 +42,13 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.gis',
     'corsheaders',                      # POR DEFECTO NO ESTA
     'rest_framework',                   # POR DEFECTO NO ESTA
     'rest_framework.authtoken',         # POR DEFECTO NO ESTA
     'coreapi',                          # POR DEFECTO NO ESTA
     'app1',                             # POR DEFECTO NO ESTA
+    'ladmcol_environment',
 ]
 
 MIDDLEWARE = [
@@ -95,7 +97,7 @@ WSGI_APPLICATION = 'dj_project_1.wsgi.application'
 
 DATABASES = { # POR DEFECTO NO ESTA- SE USA PARA PODER ACCEDER A POSTGRES
     'default': {
-    'ENGINE': 'django.db.backends.postgresql_psycopg2',
+    'ENGINE': "django.contrib.gis.db.backends.postgis", #'django.db.backends.postgresql_psycopg2', ### LA COMENTADA ES PARA USAR SIN GEODJANGO
     'NAME': os.getenv("POSTGRES_DB"),
     'USER': os.getenv("POSTGRES_USER"),
     'PASSWORD': os.getenv("POSTGRES_PASSWORD"),
