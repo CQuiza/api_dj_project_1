@@ -3,8 +3,8 @@ from django.contrib.gis import admin
 from .models import Owners, PropertyLocation, Municipality, Party, Parcel #, PropertyBounding
 
 # Register your models here.
-admin.site.register(Owners)
-admin.site.register(Party)
+#admin.site.register(Owners)
+#admin.site.register(Party)
 # admin.site.register(Deptos)
 # admin.site.register(Mpios)
 
@@ -22,6 +22,17 @@ class CustomGeoadmin(admin.GISModelAdmin):
         }
     }
 
+@admin.register(Owners)
+class OwnersAdmin(CustomGeoadmin):
+    list_display = ('id', 'name', 'lastName', 'email', 'phone', 'description', 'task', 'done')
+    search_fields = ('id','name', 'lastName')
+    list_filter = ('id', 'name', 'lastName')
+
+@admin.register(Party)
+class PartyAdmin(CustomGeoadmin):
+    list_display = ('id', 'name', 'number_id', 'address', 'phone')
+    search_fields = ('name', 'number_id')
+    list_filter = ('name', 'number_id')
 
 @admin.register(PropertyLocation)
 class PropertyLocationAdmin(CustomGeoadmin):
@@ -46,3 +57,4 @@ class ParcelAdmin(CustomGeoadmin):
 # @admin.register(PropertyBounding)
 # class PropertyBoundingAdmin(CustomGeoadmin):
 #     list_display = ('id', 'location_id', 'description', 'name_surveyor', 'date_create', 'update_at')
+
