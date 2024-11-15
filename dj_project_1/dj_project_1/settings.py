@@ -49,6 +49,7 @@ INSTALLED_APPS = [
     'coreapi',                          # POR DEFECTO NO ESTA
     'app1',                             # POR DEFECTO NO ESTA
     'ladmcol_environment',
+    'rest_framework_gis',               # POR DEFECTO NO ESTA
 ]
 
 MIDDLEWARE = [
@@ -154,4 +155,8 @@ CORS_ALLOWED_ORIGINS = []
 
 REST_FRAMEWORK = {
     'DEFAULT_SCHEMA_CLASS': 'rest_framework.schemas.coreapi.AutoSchema',
+    # 'DEFAULT_RENDERER_CLASSES': [
+    #     'rest_framework_gis.renderers.GeoJSONRenderer',  # Renderizador para GeoJSON
+    #     'rest_framework.renderers.JSONRenderer',         # Renderizador JSON normal
+    # ], # desde la linea 158 a 161 no son por defecto
 }

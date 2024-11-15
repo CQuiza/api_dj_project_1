@@ -1,6 +1,7 @@
 from rest_framework import serializers # para crear las clases
+from rest_framework_gis.serializers import GeoFeatureModelSerializer
 from django.contrib.auth.models import User # para manejar usuarios con django
-from .models import Owners, Municipality, Parcel # importar el modelo de la app1
+from .models import Owners, Municipality, Parcel, Party # importar el modelo de la app1
 
 
 class UserSerializer(serializers.ModelSerializer):
@@ -31,10 +32,14 @@ class MunicipalitySerializer(serializers.ModelSerializer):
         model = Municipality
         fields = '__all__'
 
-class ParcelSerializer(serializers.ModelSerializer):
+class ParcelSerializer(GeoFeatureModelSerializer):
     class Meta:
         model = Parcel
-        fields = '__all__'
+        
+        geo_field = 'geom'
+        id_field = False
+        auto_bbox = True
+        fields = ('code', 'municipality', 'area', 'party_owner', 'land_use', 'date_create', 'update_at')
 
 # class DeptosSerializer(serializers.ModelSerializer):
 #     class Meta:
@@ -45,3 +50,8 @@ class ParcelSerializer(serializers.ModelSerializer):
 #     class Meta:
 #         model = Mpios
 #         fields = '__all__'
+
+class PartySerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Party
+        fields = '__all__'

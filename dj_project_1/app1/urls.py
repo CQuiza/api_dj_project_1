@@ -16,13 +16,14 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, re_path, include
-from app1 import viewsLog, viewsOwner, viewsParcel
+from app1 import viewsLog, viewsOwner, viewsParcel, viewsParty
 from rest_framework import routers
 from rest_framework.documentation import include_docs_urls
 
 router = routers.DefaultRouter()
 router.register(r'owners', viewsOwner.OwnerViews, 'owners')
 router.register(r'parcel', viewsParcel.ViewsParcel, 'parcel')
+router.register(r'party', viewsParty.ViewsParty, 'party')
 # router.register(r'mpios', viewsMpios.MpiosViews, 'mpios')
 
 
@@ -38,6 +39,7 @@ urlpatterns = [
     path('owners/', include(router.urls)),
     path('parcel/', include(router.urls)),
     # path('mpios/', include(router.urls)),
+    path('party/', include(router.urls)),
 
     path('docs/', include_docs_urls(title='API Documentation')),
 ]
